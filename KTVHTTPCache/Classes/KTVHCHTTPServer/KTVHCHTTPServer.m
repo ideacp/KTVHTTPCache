@@ -77,10 +77,11 @@
     return error == nil;
 }
 
-- (void)start:(NSError * __autoreleasing *)error
+- (void)start:(NSError * __autoreleasing *)error withPort:(NSInteger)port
 {
     self.coreHTTPServer = [[HTTPServer alloc] init];
     [self.coreHTTPServer setConnectionClass:[KTVHCHTTPConnection class]];
+    self.coreHTTPServer.port = port;
     [self.coreHTTPServer setType:@"_http._tcp."];
     
     NSError * tempError = nil;
@@ -94,6 +95,11 @@
     {
         KTVHCLogHTTPServer(@"start server success");
     }
+}
+
+- (void)start:(NSError * __autoreleasing *)error
+{
+    [self start:error withPort:0];
 }
 
 - (void)stop

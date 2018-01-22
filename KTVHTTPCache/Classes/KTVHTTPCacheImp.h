@@ -24,6 +24,7 @@
 
 + (BOOL)proxyIsRunning;
 
++ (void)proxyStart:(NSError **)error withPort:(NSInteger)port;
 + (void)proxyStart:(NSError **)error;
 + (void)proxyStop;
 

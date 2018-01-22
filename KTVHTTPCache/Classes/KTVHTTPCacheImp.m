@@ -24,9 +24,14 @@
     return [KTVHCHTTPServer server].running;
 }
 
++ (void)proxyStart:(NSError * __autoreleasing *)error withPort:(NSInteger)port
+{
+    [[KTVHCHTTPServer server] start:error withPort:port];
+}
+
 + (void)proxyStart:(NSError * __autoreleasing *)error
 {
-    [[KTVHCHTTPServer server] start:error];
+    [[KTVHCHTTPServer server] start:error withPort:0];
 }
 
 + (void)proxyStop

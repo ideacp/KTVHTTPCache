@@ -19,6 +19,7 @@
 
 @property (nonatomic, assign, readonly) BOOL running;
 
+- (void)start:(NSError **)error withPort:(NSInteger)port;
 - (void)start:(NSError **)error;
 - (void)stop;
 
